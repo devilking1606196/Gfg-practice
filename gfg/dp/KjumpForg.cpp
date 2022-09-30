@@ -34,4 +34,15 @@ int main()
     cout<<KjumpFrog(height,height.size()-1,k)<<endl;
     vector<int>dp(height.size()+1,-1);
     cout<<KjumpFrogDP(height,height.size()-1,k,dp)<<endl;
+    vector<int>d(height.size(),INT_MAX);
+    d[0]=0;
+    for(int i=1;i<height.size();i++)
+    {
+        for(int j=1;j<=k;j++)
+        {
+            if(i-j>=0)
+            d[i]=min(d[i],d[i-j]+abs(height[i]-height[i-j]));
+        }
+    }
+    cout<<d[height.size()-1]<<endl;
 }
