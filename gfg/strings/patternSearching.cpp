@@ -26,9 +26,20 @@ void printIndexOfPattern(string s,string s1)
     if(ans)
     cout<<"Not Present";
 }
+void printIndexOfAllPattern(string &s,string &s1)
+{
+    int pos=s.find(s1);
+    while(pos!=string::npos)
+    {
+        cout<<pos<<" ";
+        pos=s.find(s1,pos+1);
+    }
+}
 int main()
 {
     string s="geeksforgeeks";
     string s1="eeks";
     printIndexOfPattern(s,s1);
+    cout<<endl;
+    printIndexOfAllPattern(s,s1);
 }
